@@ -1,35 +1,72 @@
-version: 2
-# Define a versão do esquema de documentação do dbt. A versão 2 é a mais utilizada atualmente.
+version: 2  # Define a versão do esquema de documentação do dbt. A versão 2 é a mais utilizada atualmente.
 
 sources:
-  - name: erp_northwind
-    # Nome da fonte de dados. Este nome será usado para referenciar a fonte nos modelos dbt.
-    description: "Fonte de dados do ERP Northwind."
-    # Descrição da fonte de dados para documentação.
-    database: FEA24_11
-    # Nome do banco de dados onde os dados estão armazenados.
-    schema: raw_northwind
-    # Nome do schema dentro do banco de dados que contém as tabelas.
+  - name: erp_northwind  # Nome da fonte de dados. Este nome será usado para referenciar a fonte nos modelos dbt.
+    description: "Fonte de dados do ERP Northwind."  # Descrição da fonte de dados para documentação.
+    database: FEA24_11  # Nome do banco de dados onde os dados estão armazenados.
+    schema: raw_northwind  # Nome do schema dentro do banco de dados que contém as tabelas.
     tables:
-      - name: orders
-        # Nome da tabela dentro do schema. Esta tabela será usada como fonte.
-        description: "Tabela de pedidos do ERP."
-        # Descrição da tabela para documentação.
+      - name: orders  # Nome da tabela dentro do schema. Esta tabela será usada como fonte.
+        description: "Tabela de pedidos do ERP."  # Descrição da tabela para documentação.
         columns:
-          - name: id
-            # Nome da coluna na tabela.
-            description: "Identificador único do pedido."
-            # Descrição da coluna para documentação.
-
-      - name: category
-        # Nome da tabela dentro do schema.
-        description: "Tabela de categorias do ERP."
-        # Descrição da tabela para documentação.
-        columns:
-          - name: id
-            # Nome da coluna na tabela.
-            description: "Identificador único da categoria."
-            # Descrição da coluna para documentação.
+          - name: id  # Nome da coluna na tabela.
+            description: "Identificador único do pedido."  # Descrição da coluna para documentação.
             tests:
-              - unique
-              - not_null
+              - unique  # Teste para garantir que os valores da coluna sejam únicos.
+              - not_null  # Teste para garantir que a coluna não contenha valores nulos.
+
+      - name: category  # Nome da tabela dentro do schema.
+        description: "Tabela de categorias do ERP."  # Descrição da tabela para documentação.
+        columns:
+          - name: id  # Nome da coluna na tabela.
+            description: "Identificador único da categoria."  # Descrição da coluna para documentação.
+            tests:
+              - unique  # Teste para garantir que os valores da coluna sejam únicos.
+              - not_null  # Teste para garantir que a coluna não contenha valores nulos.
+
+      - name: products  # Nome da tabela dentro do schema.
+        description: "Tabela de produtos do ERP."  # Descrição da tabela para documentação.
+        columns:
+          - name: id  # Nome da coluna na tabela.
+            description: "Identificador único do produto."  # Descrição da coluna para documentação.
+            tests:
+              - unique  # Teste para garantir que os valores da coluna sejam únicos.
+              - not_null  # Teste para garantir que a coluna não contenha valores nulos.
+          - name: name  # Nome da coluna na tabela.
+            description: "Nome do produto."  # Descrição da coluna para documentação.
+          - name: id  # Nome da coluna na tabela.
+            description: "Identificador da categoria do produto."  # Descrição da coluna para documentação.
+
+      - name: suppliers  # Nome da tabela dentro do schema.
+        description: "Tabela de fornecedores do ERP."  # Descrição da tabela para documentação.
+        columns:
+          - name: id  # Nome da coluna na tabela.
+            description: "Identificador único do fornecedor."  # Descrição da coluna para documentação.
+            tests:
+              - unique  # Teste para garantir que os valores da coluna sejam únicos.
+              - not_null  # Teste para garantir que a coluna não contenha valores nulos.
+          - name: name  # Nome da coluna na tabela.
+            description: "Nome do fornecedor."  # Descrição da coluna para documentação.
+          - name: contact_name  # Nome da coluna na tabela.
+            description: "Nome do contato do fornecedor."  # Descrição da coluna para documentação.
+
+      - name: employees  # Nome da tabela dentro do schema.
+        description: "Tabela de funcionários do ERP."  # Descrição da tabela para documentação.
+        columns:
+          - name: id  # Nome da coluna na tabela.
+            description: "Identificador único do funcionário."  # Descrição da coluna para documentação.
+            tests:
+              - unique  # Teste para garantir que os valores da coluna sejam únicos.
+              - not_null  # Teste para garantir que a coluna não contenha valores nulos.
+          - name: first_name  # Nome da coluna na tabela.
+            description: "Primeiro nome do funcionário."  # Descrição da coluna para documentação.
+          - name: last_name  # Nome da coluna na tabela.
+            description: "Último nome do funcionário."  # Descrição da coluna para documentação.
+
+      - name: order_details  # Nome da tabela dentro do schema.
+        description: "Tabela de detalhes dos pedidos do ERP."  # Descrição da tabela para documentação.
+        columns:
+          - name: id  # Nome da coluna na tabela.
+            description: "Identificador do pedido."  # Descrição da coluna para documentação.
+            tests:
+              - not_null  # Teste para garantir que a coluna não contenha valores nulos.

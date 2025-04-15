@@ -1,21 +1,16 @@
--- models/staging/erp_northwind/stg_erp_northwind_categorias.sql
--- Descrição:
--- Este modelo cria uma tabela temporária com os dados de categorias
--- do banco de dados Northwind. Ele seleciona todos os campos da tabela
--- de categorias e os renomeia para o padrão do dbt.
 WITH
     fonte_categoria as (
         select *
-        from {{ source('erp_northwind', 'category') }}
+        from {{ source('erp_northwind', 'category') }} -- Fonte de dados: tabela category do ERP Northwind
     )
     -- CTE para criar uma tabela temporária com os dados de categorias
     , renomeado as (
         SELECT
-            cast(ID as int) as pk_categoria
-            , cast(CATEGORYNAME as string) as nome_categoria
-            , cast(DESCRIPTION as string) as descricao_categoria
-        from fonte_categoria
+            cast(ID as int) as pk_categoria -- Identificador único da categoria (chave primária)
+            , cast(CATEGORYNAME as string) as nome_categoria -- Nome da categoria
+            , cast(DESCRIPTION as string) as descricao_categoria -- Descrição da categoria
+        from fonte_categoria -- Dados provenientes da CTE fonte_categoria
     )
 
 select *
-from renomeado
+from renomeado -- Seleciona todos os dados da CTE renomeado
