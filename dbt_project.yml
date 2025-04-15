@@ -1,0 +1,27 @@
+name: 'dbt_with_ai'  # Nome do projeto dbt.
+version: '1.0.0'  # Versão do projeto.
+
+profile: 'dbt_with_ai'  # Define o perfil de conexão que será usado para este projeto.
+
+model-paths: ["models"]  # Diretório onde os modelos dbt estão localizados.
+analysis-paths: ["analyses"]  # Diretório onde análises SQL estão localizadas.
+test-paths: ["tests"]  # Diretório onde os testes personalizados estão localizados.
+seed-paths: ["seeds"]  # Diretório onde os arquivos seed (dados estáticos) estão localizados.
+macro-paths: ["macros"]  # Diretório onde macros personalizadas estão localizadas.
+snapshot-paths: ["snapshots"]  # Diretório onde snapshots (capturas de dados históricos) estão localizados.
+
+clean-targets:  # Diretórios que serão limpos pelo comando `dbt clean`.
+  - "target"
+  - "dbt_packages"
+
+models:
+  dbt_with_ai:
+    staging:  # Configuração para os modelos de staging.
+      +schema: staging  # Define o schema para os modelos de staging como "staging".
+      +materialized: view  # Define que os modelos de staging serão materializados como views.
+    intermediate:  # Configuração para os modelos intermediários.
+      +schema: intermediate  # Define o schema para os modelos intermediários como "intermediate".
+      +materialized: view  # Define que os modelos intermediários serão materializados como views.
+    marts:  # Configuração para os modelos de marts.
+      +schema: marts  # Define o schema para os modelos de marts como "marts".
+      +materialized: table  # Define que os modelos de marts serão materializados como tabelas.

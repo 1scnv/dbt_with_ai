@@ -1,0 +1,35 @@
+version: 2
+# Define a versão do esquema de documentação do dbt. A versão 2 é a mais utilizada atualmente.
+
+sources:
+  - name: erp_northwind
+    # Nome da fonte de dados. Este nome será usado para referenciar a fonte nos modelos dbt.
+    description: "Fonte de dados do ERP Northwind."
+    # Descrição da fonte de dados para documentação.
+    database: FEA24_11
+    # Nome do banco de dados onde os dados estão armazenados.
+    schema: raw_northwind
+    # Nome do schema dentro do banco de dados que contém as tabelas.
+    tables:
+      - name: orders
+        # Nome da tabela dentro do schema. Esta tabela será usada como fonte.
+        description: "Tabela de pedidos do ERP."
+        # Descrição da tabela para documentação.
+        columns:
+          - name: id
+            # Nome da coluna na tabela.
+            description: "Identificador único do pedido."
+            # Descrição da coluna para documentação.
+
+      - name: category
+        # Nome da tabela dentro do schema.
+        description: "Tabela de categorias do ERP."
+        # Descrição da tabela para documentação.
+        columns:
+          - name: id
+            # Nome da coluna na tabela.
+            description: "Identificador único da categoria."
+            # Descrição da coluna para documentação.
+            tests:
+              - unique
+              - not_null
