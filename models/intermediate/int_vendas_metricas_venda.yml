@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: int_vendas_metricas_venda
+    description: >
+      Modelo intermediário que calcula métricas de vendas a partir da junção das tabelas de pedidos e itens do pedido.
+      Inclui informações detalhadas sobre os pedidos, produtos e métricas como total bruto, total líquido, frete rateado e indicação de desconto.
+    columns:
+      - name: pk_pedido
+        description: Identificador único do pedido.
+        tests:
+          - not_null
+      - name: data_pedido
+        description: Data em que o pedido foi realizado.
+      - name: fk_produto
+        description: Chave estrangeira que referencia o produto no pedido.
+      - name: quantidade
+        description: Quantidade de itens do produto no pedido.
+      - name: preco_unitario
+        description: Preço unitário do produto no pedido.
+      - name: desconto_percentual
+        description: Percentual de desconto aplicado ao produto no pedido.
+      - name: frete_rateado
+        description: Valor do frete rateado por produto no pedido.
+      - name: total_bruto
+        description: Valor total bruto do pedido (quantidade * preço unitário).
+      - name: total_liquido
+        description: Valor total líquido do pedido considerando o desconto.
+      - name: teve_desconto
+        description: Indica se o produto teve desconto (true/false).

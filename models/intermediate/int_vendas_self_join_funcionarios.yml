@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: int_vendas_self_join_funcionarios
+    description: >
+      Modelo intermediário que realiza um auto relacionamento entre funcionários e seus gerentes.
+      Inclui informações detalhadas sobre os funcionários e o nome de seus respectivos gerentes.
+    columns:
+      - name: pk_funcionario
+        description: Identificador único do funcionário.
+        tests:
+          - not_null
+          - unique
+      - name: nome_completo
+        description: Nome completo do funcionário.
+        tests:
+          - not_null
+      - name: cargo_funcionario
+        description: Cargo ou título do funcionário.
+      - name: data_nascimento
+        description: Data de nascimento do funcionário.
+      - name: data_contratacao
+        description: Data de contratação do funcionário.
+      - name: cidade
+        description: Cidade onde o funcionário reside.
+      - name: regiao
+        description: Região onde o funcionário reside.
+      - name: pais
+        description: País onde o funcionário reside.
+      - name: nome_gerente
+        description: Nome completo do gerente do funcionário.

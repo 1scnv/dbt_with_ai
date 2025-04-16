@@ -14,6 +14,7 @@ WITH
             , cast(OrderDate as date) as data_pedido -- Data em que o pedido foi realizado
             , cast(RequiredDate as date) as data_requerida -- Data requerida para entrega do pedido
             , cast(ShippedDate as date) as data_envio -- Data em que o pedido foi enviado
+            , cast(FREIGHT as numeric) as frete -- Valor do frete do pedido
             , cast(SHIPNAME as string) as nome_envio -- Nome do destinatário do envio
             , cast(SHIPADDRESS as string) as endereco_envio -- Endereço de envio do pedido
             , cast(SHIPCITY as string) as cidade_envio -- Cidade de envio do pedido

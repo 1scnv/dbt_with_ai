@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: int_vendas_prep_produtos
+    description: >
+      Modelo intermediário que enriquece os dados de produtos com informações de categorias e fornecedores.
+      Inclui todas as informações de produtos, além do nome da categoria e o nome, cidade e país do fornecedor.
+    columns:
+      - name: pk_produto
+        description: Identificador único do produto.
+        tests:
+          - not_null
+          - unique
+      - name: nome_produto
+        description: Nome do produto.
+        tests:
+          - not_null
+      - name: fk_categoria
+        description: Chave estrangeira que referencia a categoria do produto.
+      - name: fk_fornecedor
+        description: Chave estrangeira que referencia o fornecedor do produto.
+      - name: quantidade_por_unidade
+        description: Quantidade por unidade do produto.
+      - name: preco_unitario
+        description: Preço unitário do produto.
+      - name: unidades_em_estoque
+        description: Quantidade de unidades disponíveis em estoque.
+      - name: unidades_em_pedido
+        description: Quantidade de unidades em pedido.
+      - name: nivel_de_pedido
+        description: Nível de reordenação do produto.
+      - name: produto_descontinuado
+        description: Indica se o produto está descontinuado.
+      - name: nome_categoria
+        description: Nome da categoria do produto.
+        tests:
+          - not_null
+      - name: nome_empresa
+        description: Nome do fornecedor do produto.
+        tests:
+          - not_null
+      - name: cidade_fornecedor
+        description: Cidade onde o fornecedor está localizado.
+      - name: pais_fornecedor
+        description: País onde o fornecedor está localizado.
