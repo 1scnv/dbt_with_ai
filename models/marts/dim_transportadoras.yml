@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: dim_transportadoras
+    description: >
+      Dimensão que contém informações detalhadas sobre as transportadoras, incluindo dados de contato,
+      localização e informações gerais.

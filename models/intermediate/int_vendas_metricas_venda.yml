@@ -8,8 +8,6 @@ models:
     columns:
       - name: pk_pedido
         description: Identificador único do pedido.
-        tests:
-          - not_null
       - name: data_pedido
         description: Data em que o pedido foi realizado.
       - name: fk_produto

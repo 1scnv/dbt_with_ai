@@ -70,3 +70,21 @@ sources:
             description: "Identificador do pedido."  # Descrição da coluna para documentação.
             tests:
               - not_null  # Teste para garantir que a coluna não contenha valores nulos.
+
+      - name: customers  # Nome da tabela dentro do schema.
+        description: "Tabela de clientes do ERP."  # Descrição da tabela para documentação.
+        columns:
+          - name: id  # Nome da coluna na tabela.
+            description: "Identificador único do cliente."  # Descrição da coluna para documentação.
+            tests:
+              - unique  # Teste para garantir que os valores da coluna sejam únicos.
+              - not_null  # Teste para garantir que a coluna não contenha valores nulos.
+
+      - name: shippers  # Nome da tabela dentro do schema.
+        description: "Tabela de transportadoras do ERP."  # Descrição da tabela para documentação.
+        columns:
+          - name: id  # Nome da coluna na tabela.
+            description: "Identificador único da transportadora."  # Descrição da coluna para documentação.
+            tests:
+              - unique  # Teste para garantir que os valores da coluna sejam únicos.
+              - not_null  # Teste para garantir que a coluna não contenha valores nulos.

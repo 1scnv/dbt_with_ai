@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: dim_produtos
+    description: >
+      Dimensão que contém informações detalhadas sobre os produtos, incluindo dados de categorias,
+      fornecedores e características do produto.
