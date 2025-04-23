@@ -6,7 +6,7 @@ WITH
 
     , ordem_itens AS (
         SELECT *
-        FROM {{ ref('stg_erp_ordem_itens') }} -- Fonte de dados: tabela de itens do pedido
+        FROM {{ ref('stg_erp_northwind_ordem_itens') }} -- Fonte de dados: tabela de itens do pedido
     )
 
     -- CTE para realizar a junção das tabelas orders e ordem_itens

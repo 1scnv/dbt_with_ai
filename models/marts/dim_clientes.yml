@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: dim_clientes
+    description: >
+      Dimensão que contém informações detalhadas sobre os clientes, incluindo dados de contato,
+      localização e informações gerais.

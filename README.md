@@ -7,9 +7,25 @@ Este projeto demonstra como a inteligência artificial (IA) pode ser integrada e
 O projeto está organizado nos seguintes diretórios principais:
 
 - **models/**: Contém todos os modelos dbt, organizados em subdiretórios:
-  - **staging/**: Modelos que preparam os dados brutos para transformações posteriores.
-  - **intermediate/**: Modelos que realizam transformações intermediárias, enriquecendo e unindo dados.
-  - **marts/**: Modelos que criam conjuntos de dados finais para relatórios e análises.
+  - **staging/**: Modelos que preparam os dados brutos para transformações posteriores. Contém os seguintes modelos:
+    - `stg_erp_northwind_categorias.sql`: Prepara os dados das categorias de produtos.
+    - `stg_erp_northwind_clientes.sql`: Prepara os dados dos clientes.
+    - `stg_erp_northwind_fornecedores.sql`: Prepara os dados dos fornecedores.
+    - `stg_erp_northwind_funcionarios.sql`: Prepara os dados dos funcionários.
+    - `stg_erp_northwind_ordem_itens.sql`: Prepara os dados dos itens das ordens de compra.
+    - `stg_erp_northwind_orders.sql`: Prepara os dados das ordens de compra.
+    - `stg_erp_northwind_produtos.sql`: Prepara os dados dos produtos.
+    - `stg_erp_northwind_transportadoras.sql`: Prepara os dados das transportadoras.
+  - **intermediate/**: Modelos que realizam transformações intermediárias, como:
+    - `int_vendas_metricas_venda.sql`: Calcula métricas de vendas.
+    - `int_vendas_self_join_funcionarios.sql`: Realiza auto-relacionamentos para associar funcionários aos seus gerentes.
+    - `int_vendas_prep_produtos.sql`: Prepara dados de produtos para análises posteriores.
+  - **marts/**: Modelos que criam conjuntos de dados finais para relatórios e análises, incluindo:
+    - `dim_clientes.sql`: Cria a dimensão de clientes.
+    - `dim_funcionarios.sql`: Cria a dimensão de funcionários.
+    - `dim_produtos.sql`: Cria a dimensão de produtos.
+    - `dim_transportadoras.sql`: Cria a dimensão de transportadoras.
+    - `fact_vendas.sql`: Cria a tabela fato de vendas.
 - **analyses/**: Contém arquivos SQL para análises avançadas.
 - **macros/**: Macros personalizadas para estender a funcionalidade do dbt.
 - **seeds/**: Arquivos de dados estáticos utilizados no projeto.
@@ -17,6 +33,18 @@ O projeto está organizado nos seguintes diretórios principais:
 - **tests/**: Testes personalizados para validar a qualidade e integridade dos dados.
 - **logs/**: Armazena os logs gerados durante as execuções do dbt.
 - **target/**: Contém modelos compilados e artefatos gerados pelo dbt.
+
+# Modelagem Inicial da Camada Staging
+
+Abaixo está a modelagem inicial da camada staging, representada pela imagem:
+
+![Modelagem Inicial - Staging](initial_diagram_northwind.jpg)
+
+# Modelagem Final da Camada Marts
+
+Abaixo está a modelagem final da camada marts, representada pela imagem:
+
+![Modelagem Final - Marts](diagram_northwind.jpg)
 
 ## Principais Funcionalidades
 - **Desenvolvimento Assistido por IA**: A IA é utilizada para automatizar e aprimorar o desenvolvimento de modelos dbt, incluindo a geração de SQL, documentação YAML e testes.
@@ -41,7 +69,7 @@ Os seguintes testes foram implementados para garantir a qualidade e integridade 
 - **Documentação YAML**:
   - Cada modelo possui um arquivo YAML correspondente com descrições detalhadas e testes aplicáveis.
 - **Comentários no Código**:
-  - Explicações detalhadas em cada trecho do SQL para facilitar o entendimento.
+  - Melhorias nos comentários dos códigos SQL para facilitar o entendimento.
 - **Organização por Diretórios**:
   - Separação clara entre modelos de staging, intermediários e marts para manter a organização do projeto.
 
@@ -82,3 +110,4 @@ Este projeto serve como um exemplo prático de como a IA pode ser integrada aos 
 - Aumentar a velocidade de desenvolvimento de modelos de dados
 
 Ao combinar IA e dbt, este projeto destaca o potencial de inovação nas práticas de engenharia de dados.
+

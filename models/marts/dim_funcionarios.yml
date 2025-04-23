@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: dim_funcionarios
+    description: >
+      Dimensão que contém informações detalhadas sobre os funcionários, incluindo dados pessoais,
+      localização e informações sobre seus gerentes.

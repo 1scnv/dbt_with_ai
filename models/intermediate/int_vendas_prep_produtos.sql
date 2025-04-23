@@ -9,7 +9,7 @@ WITH
     )
     , fornecedores_base AS (
         SELECT *
-        FROM {{ ref('stg_erp_fornecedores') }} -- Fonte de dados: tabela de fornecedores
+        FROM {{ ref('stg_erp_northwind_fornecedores') }} -- Fonte de dados: tabela de fornecedores
     )
     , produtos_enriquecidos AS (
         SELECT

@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: fact_vendas
+    description: >
+      Tabela fato que consolida as métricas de vendas, incluindo informações sobre pedidos,
+      produtos, quantidades, preços, descontos e valores totais.
